@@ -28,18 +28,17 @@ public class ManyToOneService {
     public void registMenu(MenuDTO menu) {
 
         Menu newMenu = new Menu(
-                menu.getMenuCode(),
-                menu.getMenuName(),
-                menu.getMenuPrice(),
-                new Category(
-                        menu.getCategoryDTO().getCategoryCode(),
-                        menu.getCategoryDTO().getCategoryName(),
-                        menu.getCategoryDTO().getRefCategoryCode()
-                ),
-                menu.getOrderableStatus()
+            menu.getMenuCode(),
+            menu.getMenuName(),
+            menu.getMenuPrice(),
+            new Category(
+                menu.getCategoryDTO().getCategoryCode(),
+                menu.getCategoryDTO().getCategoryName(),
+                menu.getCategoryDTO().getRefCategoryCode()
+            ),
+            menu.getOrderableStatus()
         );
 
         manyToOneRepository.regist(newMenu);
-
     }
 }

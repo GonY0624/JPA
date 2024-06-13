@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Objects;
 
 @Repository
 public class SimpleJPQLRepository {
@@ -47,18 +46,15 @@ public class SimpleJPQLRepository {
         Menu resultMenu = query.getSingleResult();
 
         return resultMenu;
-
     }
 
     public List<Menu> selectMultiRowByTypedQuery() {
 
-        String jqpl = "SELECT m FROM section01Menu m";
-        // = select * from tbl_menu
-        TypedQuery<Menu> query = manager.createQuery(jqpl, Menu.class);
+        String jpql = "SELECT m FROM section01Menu m";
+        TypedQuery<Menu> query = manager.createQuery(jpql, Menu.class);
         List<Menu> resultMenuList = query.getResultList();
 
         return resultMenuList;
-
     }
 
     public List<Menu> selectMultiRowByQuery() {
@@ -69,15 +65,14 @@ public class SimpleJPQLRepository {
         List<Menu> resultMenuList = query.getResultList();
 
         return resultMenuList;
-
     }
 
-    public List<Integer> selectUseDistinct() {
+    public List<Integer> seletUseDistinct() {
 
         String jpql = "SELECT DISTINCT m.categoryCode FROM section01Menu m";
         TypedQuery<Integer> query = manager.createQuery(jpql, Integer.class);
         List<Integer> resultCategoryCodeList = query.getResultList();
-        return resultCategoryCodeList;
 
+        return resultCategoryCodeList;
     }
 }

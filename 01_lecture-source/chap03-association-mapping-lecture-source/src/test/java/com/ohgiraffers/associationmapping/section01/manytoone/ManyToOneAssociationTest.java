@@ -75,24 +75,24 @@ public class ManyToOneAssociationTest {
         Assertions.assertNotNull(categoryName);
     }
 
-    private static Stream<Arguments> getInfo(){
+    private static Stream<Arguments> getInfo() {
         return Stream.of(
-                Arguments.of(123, "돈까스 스파게티", 30000, 132, "퓨전분식", "Y")
+            Arguments.of(123, "돈가스 스파게티", 30000, 123, "퓨전분식", "Y")
         );
     }
 
     /* 필기.
-    *   commit() 을 할 경우에는 컨텍스트 내에 저장된
+    *   commit() 을 할 경우에는 컨텍스트 내에 저장 된
     *   영속성 객체를 insert 하는 쿼리문이 동작을 한다.
     *   단, 카테고리가 존재하는 값이 아니기 때문에
     *   부모 테이블(tbl_category) 에 먼저 값이 들어 있어야
-    *   그 카테고리 코드를 참조하는 자식 테이블 (tbl_menu) 에
+    *   그 카테고리 코드를 참조하는 자식 테이블(tbl_menu)에
     *   데이터를 넣을 수 있게 된다.
-    *   이 때 필요한 것이 !!!
+    *   이 때 필요한 것이!!
     *   @ManyToOne 어노테이션에 영속성 전이 설정을 해주는 것이다.
     *   영속성 전이란 특정 엔티티를 영속화 할 때
-    *   연관된 엔티티도 함께 영속화를 진행한다는 의미이다.
-    *   즉, cascade = CascadeTYpe.PERSIST 를 설정하게 된다면
+    *   연관 된 엔티티도 함께 영속화를 진행한다는 의미이다.
+    *   즉, cascade = CascadeType.PERSIST 를 설정하게 된다면
     *   menu_and_category 엔티티를 영속화 할 때 Category 엔티티도
     *   함께 영속화를 진행해준다.
     *  */
@@ -116,4 +116,5 @@ public class ManyToOneAssociationTest {
         );
 
     }
+
 }

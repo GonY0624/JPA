@@ -4,17 +4,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class BiDirectionService {
+public class BidirectionService {
 
-    private BiDirectionRepository biDirectionRepository;
+    private BidirectionRepository bidirectionRepository;
 
-    public BiDirectionService(BiDirectionRepository biDirectionRepository) {
-        this.biDirectionRepository =biDirectionRepository;
+    public BidirectionService(BidirectionRepository bidirectionRepository) {
+        this.bidirectionRepository =bidirectionRepository;
     }
 
     public Menu findMenu(int menuCode) {
 
-        return biDirectionRepository.findMenu(menuCode);
+        return bidirectionRepository.findMenu(menuCode);
 
     }
 
@@ -22,7 +22,7 @@ public class BiDirectionService {
     @Transactional
     public Category findCategory(int categoryCode) {
 
-        Category foundCategory = biDirectionRepository.findCategory(categoryCode);
+        Category foundCategory = bidirectionRepository.findCategory(categoryCode);
 
         System.out.println("[category menuList] : " + foundCategory.getMenuList());
 
@@ -32,14 +32,14 @@ public class BiDirectionService {
     @Transactional
     public void registMenu(Menu menu) {
 
-        biDirectionRepository.saveMenu(menu);
+        bidirectionRepository.saveMenu(menu);
 
     }
 
     @Transactional
     public void registCategory(Category category) {
 
-        biDirectionRepository.saveCategory(category);
+        bidirectionRepository.saveCategory(category);
 
     }
 }

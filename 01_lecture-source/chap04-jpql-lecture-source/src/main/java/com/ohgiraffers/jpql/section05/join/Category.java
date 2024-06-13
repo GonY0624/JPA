@@ -52,6 +52,7 @@ public class Category {
                 "categoryCode=" + categoryCode +
                 ", categoryName='" + categoryName + '\'' +
                 ", refCategoryCode=" + refCategoryCode +
+//                ", menuList=" + menuList + 순환참조 stackoverflow
                 '}';
     }
 }

@@ -5,7 +5,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BiDirectionRepository {
+public class BidirectionRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

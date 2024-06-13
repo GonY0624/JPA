@@ -1,9 +1,12 @@
 package com.ohgiraffers.jpql.section02.parameter;
 
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.swing.*;
 import java.util.List;
 
 @Repository
@@ -18,6 +21,7 @@ public class ParameterBindingRepository {
         List<Menu> resultMenuList = manager.createQuery(jpql, Menu.class)
                                             .setParameter("menuName", menuName)
                                             .getResultList();
+
         return resultMenuList;
     }
 
@@ -27,6 +31,7 @@ public class ParameterBindingRepository {
         List<Menu> resultMenuList = manager.createQuery(jpql, Menu.class)
                 .setParameter(1, menuName)
                 .getResultList();
+
         return resultMenuList;
 
     }

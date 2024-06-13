@@ -23,7 +23,7 @@ public class Menu {
     @Column(name = "orderable_status")
     private String orderableStatus;
 
-    protected Menu(){}
+    protected Menu() {}
 
     public Menu(int menuCode, String menuName, int menuPrice, Category category, String orderableStatus) {
         this.menuCode = menuCode;

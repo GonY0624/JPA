@@ -1,8 +1,6 @@
 package com.ohgiraffers.jpql.section04.groupfunction;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Id;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +18,7 @@ public class GroupRepository {
         long countOfMenu = manager.createQuery(jpql, Long.class)
                 .setParameter("categoryCode", categoryCode)
                 .getSingleResult();
+
         return countOfMenu;
 
     }
@@ -42,14 +41,15 @@ public class GroupRepository {
     public List<Object[]> selectGroupAndHaving(long minPrice) {
 
         String jpql = "SELECT m.categoryCode, SUM(m.menuPrice)" +
-                        " FROM section04Menu m" +
-                        " GROUP BY m.categoryCode" +
-                        " HAVING SUM(m.menuPrice) >= :minPrice";
+                " FROM section04Menu m" +
+                " GROUP BY m.categoryCode" +
+                " HAVING SUM(m.menuPrice) >= :minPrice";
 
         List<Object[]> sumPriceCategoryList = manager.createQuery(jpql)
                 .setParameter("minPrice", minPrice)
                 .getResultList();
 
         return sumPriceCategoryList;
+
     }
 }

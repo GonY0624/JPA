@@ -17,9 +17,9 @@ public class Menu {
     private int menuPrice;
 
     /* 영속성 전이
-    *   특정 엔티티를 영속화(등록) 할 때, 연관된 엔티티도 함꼐
+    *   특정 엔티티를 영속화(등록) 할 때, 연관 된 엔티티도 함께
     *   영속화 한다는 의미이다.
-    *   즉,
+    *   즉
     *   -> Menu 엔티티를 영속화 할 때, Category 엔티티도 같이 영속화 시킨다.
     * */
     @ManyToOne(cascade = CascadeType.PERSIST)

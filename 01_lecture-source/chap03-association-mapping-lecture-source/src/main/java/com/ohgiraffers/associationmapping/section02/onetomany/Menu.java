@@ -62,5 +62,4 @@ public class Menu {
                 ", orderableStatus='" + orderableStatus + '\'' +
                 '}';
     }
-
 }

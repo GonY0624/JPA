@@ -21,30 +21,29 @@ public class JoinRepository {
         return menuList;
     }
 
-    public List<Object[]> selectOuterJoin() {
+    public List<Object[]> selectOutterJoin() {
 
-        String jpql = "SELECT m.menuName, c.categoryName "+
-                " FROM section05Menu m"+
-                " RIGHT JOIN m.category c "+
-                " ORDER BY m.category.categoryCode ";
-
+        String jpql = "SELECT m.menuName, c.categoryName" +
+                " FROM section05Menu m" +
+                " RIGHT JOIN m.category c" +
+                " ORDER BY m.category.categoryCode";
         List<Object[]> menuList = manager.createQuery(jpql).getResultList();
+
         return menuList;
     }
 
     public List<Object[]> selectCollectionJoin() {
 
-        String jpql = "SELECT m.menuName, c.categoryName "+
-                " FROM section05Category c"+
+        String jpql = "SELECT m.menuName, c.categoryName" +
+                " FROM section05Category c" +
                 " LEFT JOIN c.menuList m";
 
         List<Object[]> categoryList = manager.createQuery(jpql).getResultList();
 
         return categoryList;
-
     }
 
-    // 엔티티와 관련 있는 연관엔티티를 한번의 쿼리로 함께 조회하는 방법
+    // 엔티티와 관련된 연관 엔티티를 한 번의 쿼리로 함께 조회하는 방법
     public List<Menu> selectFetchJoin() {
 
         String jpql = "SELECT m FROM section05Menu m JOIN FETCH m.category c";
